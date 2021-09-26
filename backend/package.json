@@ -3,20 +3,47 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon index",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "init-db": "knex migrate:latest && knex seed:run",
-    "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run"
+    "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "start": "node ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "dependencies": {
-    "knex": "^0.20.2",
+    "express": "^4.17.1",
+    "jest": "^27.1.1",
+    "knex": "^0.21.1",
     "lorem-ipsum": "^2.0.3",
-    "pg": "^7.12.1"
+    "pg": "^8.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test|integration).[jt]s?(x)"
+    ],
+    "projects": [
+      {
+        "displayName": "Unit Test",
+        "testMatch": [
+          "<rootDir>/**/*.unit.js"
+        ]
+      },
+      {
+        "displayName": "Integration Tests",
+        "testMatch": [
+          "<rootDir>/**/*.integration.js"
+        ]
+      }
+    ]
   }
 }

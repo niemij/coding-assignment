@@ -1,0 +1,46 @@
+GET http://localhost:3000/posts/getAll
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/posts/:<post_id>
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/posts/:<impacterId>
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/posts/:<postId>
+Content-Type: application/json
+
+{
+	"description": "enim ipsum ut minim et culpa mollit esse et consequat",
+	"data": {"media": [{"image": "https://picsum.photos/id/1/5616/3744", "width": 5616, "height": 3744, "version": "2019-03-14", "description": "Alejandro Escamilla"}]},
+	"type": "IMAGES",
+	"status": "VISIBLE",
+	"reaction_count": 0,
+	"published_at": ""
+}
+###
+
+PUT http://localhost:3000/posts
+Content-Type: application/json
+
+{
+	"description": "enim ipsum ut minim et culpa mollit esse et consequat",
+	"data": {"media": [{"image": "https://picsum.photos/id/1/5616/3744", "width": 5616, "height": 3744, "version": "2019-03-14", "description": "Alejandro Escamilla"}]},
+	"type": "IMAGES",
+	"status": "VISIBLE",
+	"reactionCount": 0,
+	"published_at": ""
+}
+
+###
+
+DELETE http://localhost:3000/posts/:<postId>
+Content-Type: application/json
+
+###

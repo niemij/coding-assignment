@@ -1,16 +1,16 @@
 const deletePost = (postsService) => (req, res) => {
-  const postId = req.params.id
+  const postId = req.params.postId
   if (isNaN(postId)) {
     return res
       .status(400)
-      .send({ message: 'Invalid postId' })
+      .send({ message: 'Invalid postId, must be a number' })
   }
   
   try {
-    postsService.deletePost(postId)
+    postsService.delete(postId)
     return res
       .status(200)
-      .send({ message: `Successfully deleted post with id: ${postId}` })
+      .send({ message: 'Success', data: `Deleted post: ${postId}` })
   } catch (error) {
     console.error('🛑 deletePost', error)
     return res

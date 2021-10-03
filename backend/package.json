@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index",
-    "test": "jest",
+    "test": "npm run reset-db && jest",
+    "test:integration": "npm run reset-db && jest \".*.integration.js\"",
+    "test:unit": "jest \".*.unit.js\"",
     "init-db": "knex migrate:latest && knex seed:run",
     "reset-db": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "start": "node ./src/index.js"

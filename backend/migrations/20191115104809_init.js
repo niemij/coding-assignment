@@ -1,4 +1,4 @@
-exports.up = async function(knex) {
+export const up = async function(knex) {
   await knex.schema.createTable("co_impacters", table => {
     table.increments("impacter_id");
     table.string("name").notNullable();
@@ -40,7 +40,7 @@ exports.up = async function(knex) {
   });
 };
 
-exports.down = async function(knex) {
+export const down = async function(knex) {
   await knex.schema.dropTableIfExists("co_posts");
   await knex.schema.dropTableIfExists("co_impacters");
 };

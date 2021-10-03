@@ -11,15 +11,20 @@ export const createPostsService = ({ postsModel }) => {
 
   const getByImpacterId = async (impacterId) => {
     const allPosts = await postsModel.getAll()
-    const post = allPosts.find( (post) => post.impacter_id === impacterId )
-    return post
+    const postsByImpacter = allPosts.filter( (post) => post.impacter_id === impacterId )
+    return postsByImpacter
   }
 
   const update = async (id, update) => {
-    const postForUpdate = postsModel.findById(id)
-    const updatedPost = {...postForUpdate, ...update}
-    postsModel.save(id, updatedPost)
+    const postToUpdate = postsModel.getById(id)
+    const updatedPost = {...postToUpdate, ...update}
+    postsModel.update(id, updatedPost)
     return updatedPost
+  }
+  
+  const save = async (post) => {
+    postsModel.save(post)
+    return post
   }
 
   return {
@@ -28,5 +33,6 @@ export const createPostsService = ({ postsModel }) => {
     getById,
     getByImpacterId,
     update,
+    save,
   }
 }

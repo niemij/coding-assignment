@@ -1,0 +1,65 @@
+GET http://localhost:3000/posts/v1/getAll
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/posts/v1/getPostById/<postId>
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/posts/v1/getPostsByImpacter/<impacterId>
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/posts/v1/update/<postId>
+Content-Type: application/json
+
+{
+	"data": {
+      "media": [
+        {
+          "image": "https://picsum.photos/id/773/2048/1365",
+          "width": 2048,
+          "height": 1365,
+          "version": "2019-03-14",
+          "description": "Julia Caesar"
+        }
+      ]
+    },
+  "type": "IMAGE",
+	"reactionCount": 100,
+	"publishedAt": null
+}
+###
+
+PUT http://localhost:3000/posts/v1/save
+Content-Type: application/json
+
+{
+	"description": "save dkjfghskjdlh",
+	"data": {
+      "media": [
+        {
+          "image": "https://picsum.photos/id/773/2048/1365",
+          "width": 2048,
+          "height": 1365,
+          "version": "2019-03-14",
+          "description": "Julia Caesar"
+        }
+      ]
+    },
+	"type": "IMAGES",
+	"status": "VISIBLE",
+	"reactionCount": 0,
+	"published_at": null,
+  "impacter_id": "1"
+}
+
+###
+
+DELETE http://localhost:3000/posts/v1/delete/<postId>
+Content-Type: application/json
+
+###

@@ -1,5 +1,5 @@
-const loremIpsum = require("lorem-ipsum").loremIpsum;
-const https = require("https");
+import { loremIpsum } from "lorem-ipsum"
+import https from "https"
 
 function wait(timeToWait) {
   return new Promise(function(resolve) {
@@ -87,7 +87,7 @@ async function createPosts(knex, impacters, numberOfPostsPerImpacter) {
   }
 }
 
-exports.seed = async function(knex) {
+export const seed = async function(knex) {
   const numberOfImpacters = 19;
   const numberOfPostsPerImpacter = 40;
   // Deletes ALL existing entries

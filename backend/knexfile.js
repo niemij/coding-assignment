@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   client: "postgresql",
   connection: {
     database: 'impacter-posts-dev',

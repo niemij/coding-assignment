@@ -32,3 +32,23 @@ When you are done you can run `docker-compose down` to take down the database.
 # Dev
 
 Run `npm run dev` to start nodemon with index.js
+ 
+# Notes on the assignment
+
+Decisions:
+- I choose Express because Andreas mentioned it in our meeting
+- I used soft delete, to not lose any data
+- I added Babel to make the tests run
+- I choose to do the logic in models to keep the endpoints clean 
+- Added v1 to not break the contract in the future if things need to change
+- Since the time was so limited I choose to focus a bit more on the code and logic than to e.g. get the integration tests running, because I thought that might show more what I can do and how I do things code wise
+
+If I had more time: 
+- Add TypeScript, types to be shared in the whole project
+- Add authentication to protect the endpoints
+- Fix the integration tests
+- Add validation in the save/update endpoint to make sure that the jsonb is valid
+- Make sure that all endpoints works as intended and that they return all the data you would need when using the api
+- Add swagger for documentation of all endpoints
+ 
+
